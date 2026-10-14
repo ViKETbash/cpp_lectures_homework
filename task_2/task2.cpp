@@ -79,12 +79,16 @@ int main() {
         }
         char command[10];
         int j = 0;
-        while (j < pos && j < 8) {
-            command[j] = cmd[j];
-            j++;
+        if (pos >= 9) {
+            command[0] = '\0';
+        } else {
+            while (j < pos) {
+                command[j] = cmd[j];
+                j++;
+            }
+            command[j] = '\n';
+            command[j + 1] = '\0';
         }
-        command[j] = '\n';
-        command[j + 1] = '\0';
         int k = 0;
         if (cmd[pos] == ' ') {
             int p = pos + 1;
